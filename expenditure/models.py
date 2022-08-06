@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Expenditure(models.Model):
     description = models.CharField(max_length=100, blank=False)
     value = models.DecimalField(max_digits=5, decimal_places=2, blank=False)
