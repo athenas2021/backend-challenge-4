@@ -1,5 +1,4 @@
 
-from django.urls import path, include
 from revenue import views
 from rest_framework.routers import SimpleRouter
 

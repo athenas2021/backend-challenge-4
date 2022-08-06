@@ -119,9 +119,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -134,4 +131,3 @@ from dynaconf import settings
 SECRET_KEY = settings.SECRET_KEY
 settings = dynaconf.DjangoDynaconf(__name__)  # noqa
 # HERE ENDS DYNACONF EXTENSION LOAD (No more code below this line)
- 

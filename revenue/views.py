@@ -1,6 +1,8 @@
 from rest_framework import viewsets
 from revenue.models import Revenue
 from revenue.serializers import RevenueSerializer
+
+
 class RevenueViewSet(viewsets.ModelViewSet):
     '''
     API endpoint that allows revenue to ve viewed or edited.
