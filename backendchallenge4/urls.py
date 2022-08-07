@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 # from revenue.urls import *
-from revenue.urls import router
+from revenue.urls import revenue_router
+from expenditure.urls import expenditure_router
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('revenue/', include(router.urls))
+    path('revenue/', include(revenue_router.urls)),
+    path('expenditure/', include(expenditure_router.urls))
 ]

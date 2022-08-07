@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Expenditure
 
-# Register your models here.
+
+# TODO - improve admin
+admin.site.register(Expenditure)

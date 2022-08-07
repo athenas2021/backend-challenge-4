@@ -6,7 +6,7 @@ class RevenueSerializer(serializers.ModelSerializer):
     class Meta:
         model = Revenue
         fields = [
-            'id',
+            # 'id',
             'description',
             'value',
             'date',
