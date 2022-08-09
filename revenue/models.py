@@ -7,4 +7,4 @@ class Revenue(models.Model):
     date = models.DateField(auto_now_add=False, blank=False)
 
     def __str__(self) -> str:
-        return(f'{self.date} ${self.value} - {self.description[:15]}...')
+        return (f'{self.date} ${self.value} - {self.description[:15]}...')

@@ -1,4 +1,3 @@
-from sre_parse import CATEGORIES
 from django.db import models
 
 
@@ -14,11 +13,11 @@ class Expenditure(models.Model):
         (7, 'unforeseen'),
         (8, 'food'),
     )
-     
+
     description = models.CharField(max_length=100, blank=False)
     value = models.DecimalField(max_digits=5, decimal_places=2, blank=False)
     date = models.DateField(auto_now_add=False, blank=False)
     category = models.IntegerField('category', choices=CATEGORIES_CHOICES, default=8)
 
     def __str__(self) -> str:
-        return(f'{self.date} ${self.value} - {self.description[:15]}...')
+        return (f'{self.date} ${self.value} - {self.description[:15]}...')

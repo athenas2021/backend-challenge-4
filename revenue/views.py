@@ -1,9 +1,7 @@
 
-from rest_framework import viewsets, status
+from rest_framework import viewsets
 from revenue.models import Revenue
 from revenue.serializers import RevenueSerializer
-from rest_framework.response import Response
-from rest_framework.exceptions import ValidationError
 
 
 class RevenueViewSet(viewsets.ModelViewSet):
@@ -12,4 +10,3 @@ class RevenueViewSet(viewsets.ModelViewSet):
     '''
     queryset = Revenue.objects.all().order_by('-id')
     serializer_class = RevenueSerializer
-
