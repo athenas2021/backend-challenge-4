@@ -6,10 +6,11 @@ class ExpenditureSerializer(serializers.ModelSerializer):
     class Meta:
         model = Expenditure
         fields = [
+            'id',
             'description',
             'value',
             'date',
-            'id'
+            'category',
         ]
 
     def create(self, validated_data):
@@ -24,6 +25,7 @@ class ExpenditureSerializer(serializers.ModelSerializer):
         instance.description = validated_data.get('description', instance.description)
         instance.date = validated_data.get('date', instance.date)
         instance.value = validated_data.get('value', instance.value)
+        instance.category = validated_data.get('category', instance.category)
         ExpenditureManager.validate_description_month(
             self,
             validated_data['description'],
