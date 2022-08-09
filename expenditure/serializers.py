@@ -15,21 +15,12 @@ class ExpenditureSerializer(serializers.ModelSerializer):
         ]
 
     def create(self, validated_data):
-        ExpenditureManager.validate_description_month(
-            self,
-            validated_data['description'],
-            validated_data['date'].month
-        )
+        ExpenditureManager.validate_description_month(self)
         return Expenditure.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         for (key, value) in validated_data.items():
             setattr(instance, key, value)
-        ExpenditureManager.validate_description_month(
-            self,
-            validated_data['description'],
-            validated_data['date'].month,
-            instance.id
-        )
+        ExpenditureManager.validate_description_month(self)
         instance.save()
         return instance
