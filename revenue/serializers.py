@@ -7,7 +7,7 @@ class RevenueSerializer(serializers.ModelSerializer):
     class Meta:
         model = Revenue
         fields = [
-            # 'id',
+            'id',
             'description',
             'value',
             'date',
@@ -22,9 +22,8 @@ class RevenueSerializer(serializers.ModelSerializer):
         return Revenue.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
-        instance.description = validated_data.get('description', instance.description)
-        instance.date = validated_data.get('date', instance.date)
-        instance.value = validated_data.get('value', instance.value)
+        for (key, value) in validated_data.items():
+            setattr(instance, key, value)
         RevenueManager.validate_description_month(
             self,
             validated_data['description'],

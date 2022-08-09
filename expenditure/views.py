@@ -1,8 +1,6 @@
-from rest_framework import viewsets, status
+from rest_framework import viewsets
 from expenditure.models import Expenditure
 from expenditure.serializers import ExpenditureSerializer
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
 
 
 class ExpenditureViewSet(viewsets.ModelViewSet):
