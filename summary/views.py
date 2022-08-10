@@ -20,11 +20,11 @@ class SummaryView(APIView):
         # mount category list
         for choice in Expenditure.CATEGORIES_CHOICES:
             list_expenditures_by_category[choice[1]] = 0
-        queryset_revenues =  Revenue.objects.filter(
+        queryset_revenues = Revenue.objects.filter(
             date__year=year,
             date__month=month
         )
-        queryset_expenditure =  Expenditure.objects.filter(
+        queryset_expenditure = Expenditure.objects.filter(
             date__year=year,
             date__month=month
         )

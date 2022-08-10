@@ -32,7 +32,7 @@ class ExpenditureByMonthView(ListAPIView):
         # TODO - passar essa validação para manager
         month = self.kwargs['month']
         year = self.kwargs['year']
-        if month not in range(1,13):
+        if month not in range(1, 13):
             raise ValidationError(f'Month not valid ({month})', code='month-invalid')
         if year not in range(2000, (date.today().year)+1):
             raise ValidationError(f'Year not valid ({year})', code='year-invalid')
