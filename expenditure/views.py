@@ -1,12 +1,10 @@
 from rest_framework import viewsets
 from expenditure.models import Expenditure
 from expenditure.serializers import ExpenditureSerializer
-from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListAPIView
 # from datatables.models import DataTables
 from datetime import date
-
 
 
 class ExpenditureViewSet(viewsets.ModelViewSet):
@@ -30,9 +28,8 @@ class ExpenditureByMonthView(ListAPIView):
 
     serializer_class = ExpenditureSerializer
 
-    
     def get_queryset(self):
-         # TODO - passar essa validação para manager
+        # TODO - passar essa validação para manager
         month = self.kwargs['month']
         year = self.kwargs['year']
         if month not in range(1,13):
@@ -42,6 +39,6 @@ class ExpenditureByMonthView(ListAPIView):
 
         queryset = Expenditure.objects.filter(
             date__year=year,
-            date__month=month   
+            date__month=month
         )
         return queryset
