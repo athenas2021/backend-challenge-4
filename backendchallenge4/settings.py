@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'summary.apps.SummaryConfig',
     'expenditure.apps.ExpenditureConfig',
     'revenue.apps.RevenueConfig',
     'django.contrib.admin',
@@ -39,6 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10
+}
 
 import os
 STATIC_URL = '/static/'
