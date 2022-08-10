@@ -23,6 +23,7 @@ from expenditure.urls import expenditure_router
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('revenue/', include(revenue_router.urls)),
+    path('revenue/', include('revenue.urls')),
     path('expenditure/', include(expenditure_router.urls)),
     path('expenditure/',include('expenditure.urls')),
 ]

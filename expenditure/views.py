@@ -16,9 +16,9 @@ class ExpenditureViewSet(viewsets.ModelViewSet):
 
     def list(self, request):
         queryset = self.get_queryset()
-        filter_description = request.GET.getlist('description', None)
+        filter_description = request.GET.get('description', None)
         if len(filter_description) > 0:
-            queryset = queryset.filter(description__in=filter_description)
+            queryset = queryset.filter(description=filter_description)
         queryset = self.paginate_queryset(queryset)
         serializer = ExpenditureSerializer(queryset, many=True, context={'request': request})
         return self.get_paginated_response(serializer.data)
