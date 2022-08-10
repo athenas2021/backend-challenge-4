@@ -17,7 +17,7 @@ class RevenueViewSet(viewsets.ModelViewSet):
     def list(self, request):
         queryset = self.get_queryset()
         filter_description = request.GET.get('description', None)
-        if len(filter_description) > 0:
+        if filter_description:
             queryset = queryset.filter(description=filter_description)
         queryset = self.paginate_queryset(queryset)
         serializer = RevenueSerializer(queryset, many=True, context={'request': request})
@@ -35,11 +35,11 @@ class RevenueByMonthView(ListAPIView):
             raise ValidationError(f'Month not valid({month})', code='month-invalid')
         if year not in range(2000, (date.today().year)+1):
             raise ValidationError(f'Year not valid ({year})', code='year-invalid')
-        
+
         return (
             Revenue.objects.filter(
                 date__year=year,
                 date__month=month
             )
         )
-        
+

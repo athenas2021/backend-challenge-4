@@ -11,7 +11,7 @@ class Expenditure(models.Model):
         (5, 'education'),
         (6, 'leisure'),
         (7, 'unforeseen'),
-        (8, 'food'),
+        (8, 'other'),
     )
 
     description = models.CharField(max_length=100, blank=False)
