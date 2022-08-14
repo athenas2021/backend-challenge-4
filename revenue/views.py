@@ -23,6 +23,7 @@ class RevenueViewSet(viewsets.ModelViewSet):
         serializer = RevenueSerializer(queryset, many=True, context={'request': request})
         return self.get_paginated_response(serializer.data)
 
+
 class RevenueByMonthView(ListAPIView):
 
     serializer_class = RevenueSerializer
@@ -42,4 +43,3 @@ class RevenueByMonthView(ListAPIView):
                 date__month=month
             )
         )
-
